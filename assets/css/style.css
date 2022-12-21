@@ -1,0 +1,22 @@
+body {
+    background-color: rgb(64, 64, 192);
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+.container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    background-color: white;
+    border-radius: 5px 5px;
+    border: black;
+}
+
+.answerBtns {
+    
+}
