@@ -3,6 +3,7 @@ body {
     position: absolute;
     top: 40%;
     left: 40%;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .container {
@@ -20,6 +21,10 @@ body {
 .answerBtns {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 10px;
-    margin: 20px 0;
+    gap: 5px;
+    margin: 25px;
+}
+
+.hide {
+    display: none;
 }
