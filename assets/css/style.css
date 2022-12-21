@@ -18,5 +18,8 @@ body {
 }
 
 .answerBtns {
-    
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
 }
