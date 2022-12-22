@@ -54,3 +54,8 @@ var correctAnswers = 0;
 var selectedAnswers = [];
 var questionLength = questionArray.length;
 
+function startQuiz() {
+    startBtnEl.classList.add("hide");
+    questionsEl.classList.remove("hide");
+    displayQuestion(currentQuestionIndex);
+}
