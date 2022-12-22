@@ -59,3 +59,31 @@ function startQuiz() {
     questionsEl.classList.remove("hide");
     displayQuestion(currentQuestionIndex);
 }
+
+function displayQuestion(index) {
+    var question = questionArray[index];
+    var questionEl = document.getElementById("question");
+    questionEl.textContent = question.question;
+    var answerBtnsEl = document.getElementById("answerBtns");
+    while (answerBtnsEl.firstChild){
+        answerBtnsEl.removeChild(answerBtnsEl.firstChild);
+    }
+
+    for (var key in question.choices) {
+        var choice = question.choices[key];
+        var btn = document.createElement("button");
+        btn.textContent = choice;
+        btn.classList.add("btn");
+
+        btn.addEventListener("click", function () {
+            selectedAnswers[currentQuestionIndex] = choice;
+            if (currentQuestionIndex === totalQuestions - 1) {
+                endQuiz ();
+            } else {
+                currentQuestionIndex++;
+                displayQuestion(currentQuestionIndex;)
+            }
+        });
+        answerBtnsEl.appendChild(btn);
+    }
+}
