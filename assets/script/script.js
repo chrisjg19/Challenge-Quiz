@@ -2,63 +2,98 @@ var startBtnEl = document.getElementById("startBtn");
 var nextBtnEl = document.getElementById("nextBtn");
 var questionsEl = document.getElementById("questionBox");
 var questionArray = [
-    {
-        question: "What is the answer to life",
-        choices: {
-            1:"Live,love,laugh",
-            2:"The answer is objective",
-            3:"42",
-            4:"Not Sure",
-        },
-        answer: {3:"42"},
-
-        
-    },
-    {
-        question: "What goes up but doesnt come down?",
-        choices: {
-            1:"Money",
-            2:"Age",
-            3:"Not Sure",
-            4:"Water",
-        },
-        answer: { 2:"Age"},
-
-    },
-    {
-        question: "What is 9 + 10 ",
-        choices: {
-            1:"87",
-            2:"21",
-            3:"42",
-            4:"19",
-        },
-        answer: {2:"21"},
-
-    },
-    {
-        question: "What is the best Burger Place",
-        choices: {
-            1:"Whataburger",
-            2:"McDonalds",
-            3:"Burger King",
-            4:"Chick-fil-a",
-        },
-        answer: {1:"Whataburger"},
-
-    },
+  {
+    question: "What is the answer to life?",
+    choices: [
+      {text: "Live, love, laugh", correct: false},
+      {text: "The answer is objective", correct: false},
+      {text: "42", correct: true},
+      {text: "Not sure", correct: false},
+      ],
+  
+  },
+  {
+    question: "What goes up but doesn't come down?",
+    choices: [
+      {text: "Money", correct: false},
+      {text: "Age", correct: true},
+      {text: "Not sure", correct: false},
+      {text: "Water", correct:false},
+    ],
+  
+  },
+  {
+    question: "What is 9 + 10?",
+    choices: [
+     {text: "87", correct: false},
+     {text: "21", correct: true},
+     {text: "42", correct: false},
+    {text: "19", correct: false},
+    ],
+  },
+  {
+    question: "What is the best burger place?",
+    choices: [
+     {text : "Whataburger", correct: true},
+     {text : "McDonald's", correct: false},
+     {text: "Burger King", correct: false},
+     {text: "Chick-fil-a", correct: false},
+    ],
+    
+  },
 ];
 
-var currentQuestionIndex = 0;
-var correctAnswers = 0;
-var selectedAnswers = [];
-var questionLength = questionArray.length;
 
-function startQuiz() {
-    startBtnEl.classList.add("hide");
-    questionsEl.classList.remove("hide");
-    displayQuestion(currentQuestionIndex);
+var currentQuestionIndex = 0;
+
+
+function displayQuestion() {
+  var question = questionArray[currentQuestionIndex];
+  questionsEl.innerHTML = "";
+  questionsEl.innerHTML += "<p>" + question.question + "</p>";
+  for (var i = 0; i < question.choices.length; i++) {
+    questionsEl.innerHTML += "<button  class='btn'>" + question.choices[i].text + "</button>";
+  }
+}
+function selectChoice(event) {
+
+  if (event.target.matches(".btn")) {
+    
+    var choice = event.target;
+    console.log(choice)
+    if (questionArray[currentQuestionIndex].choices[choice.dataset.index].correct) {
+      
+      alert("Correct!");
+    } else {
+      
+      alert("Incorrect!");
+    }
+    
+    currentQuestionIndex++;
+   
+    if (currentQuestionIndex >= questionArray.length) {
+      alert("Quiz complete!");
+      currentQuestionIndex = 0;
+    } else {
+      displayQuestion();
+    }
+  }
 }
 
+questionsEl.addEventListener("click", selectChoice);
 
-console.log(startQuiz)
+startBtnEl.addEventListener("click", function() {
+  displayQuestion();
+  questionsEl.classList.remove("hide");
+  startBtnEl.classList.add("hide");
+});
+
+nextBtnEl.addEventListener("click", function() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex >= questionArray.length) {
+    alert("Quiz complete!");
+    currentQuestionIndex = 0;
+  } else {
+    displayQuestion();
+  }
+});
