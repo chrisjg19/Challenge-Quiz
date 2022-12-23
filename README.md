@@ -23,3 +23,13 @@ THEN the password is either displayed in an alert or written to the page
 With the help of many online documentations, videos and tutoring I was able to create this project.
 
 ## Screenshots of the Final Product
+
+![Initial Starting Screen](./assets/images/quiz%20img1.PNG)
+![First Question](./assets/images/quiz%20img2.PNG)
+![Alert if question is right or wrong](./assets/images/quiz%20img3.PNG)
+![Quiz Complete Alert](./assets/images/quiz%20img4.PNG)
+![Input Name to save score to local storage](./assets/images/quiz%20img5.PNG)
+
+## Links to Final Product
+
+https://chrisjg19.github.io/Challenge-Quiz/
