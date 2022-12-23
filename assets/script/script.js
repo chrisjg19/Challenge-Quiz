@@ -110,6 +110,17 @@ startBtnEl.addEventListener("click", function () {
     nextBtnEl.classList.add("hide")
 });
 
-nextBtnEl.addEventListener("submit", function () {
-
+document.getElementById("save").addEventListener("click", function () {
+  var user = {
+    user:document.getElementById("user").value,
+    score:(score+timerCount)
+  }
+  var highscores = JSON.parse(localStorage.getItem("codequiz")) || []
+  highscores.push(user)
+  localStorage.setItem("codequiz",JSON.stringify(highscores))
+  nextBtnEl.classList.add("hide")
 });
+
+document.getElementById("restart").addEventListener("click",function(){
+    location.reload()
+})
