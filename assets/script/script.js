@@ -5,10 +5,10 @@ var questionArray = [
     {
         question: "What is the answer to life",
         choices: {
-            1:"Live,love,laugh"
-            2:"The answer is objective"
-            3:"42"
-            4:"Not Sure"
+            1:"Live,love,laugh",
+            2:"The answer is objective",
+            3:"42",
+            4:"Not Sure",
         },
         answer: {3:"42"},
 
@@ -17,21 +17,21 @@ var questionArray = [
     {
         question: "What goes up but doesnt come down?",
         choices: {
-            1:"Money"
-            2:"Age"
-            3:"Not Sure"
-            4:"Water"
+            1:"Money",
+            2:"Age",
+            3:"Not Sure",
+            4:"Water",
         },
-        answer: { 2:"Age"}
+        answer: { 2:"Age"},
 
     },
     {
         question: "What is 9 + 10 ",
         choices: {
-            1:"87"
-            2:"21"
-            3:"42"
-            4:"19"
+            1:"87",
+            2:"21",
+            3:"42",
+            4:"19",
         },
         answer: {2:"21"},
 
@@ -39,10 +39,10 @@ var questionArray = [
     {
         question: "What is the best Burger Place",
         choices: {
-            1:"Whataburger"
-            2:"McDonalds"
-            3:"Burger King"
-            4:"Chick-fil-a"
+            1:"Whataburger",
+            2:"McDonalds",
+            3:"Burger King",
+            4:"Chick-fil-a",
         },
         answer: {1:"Whataburger"},
 
@@ -60,30 +60,5 @@ function startQuiz() {
     displayQuestion(currentQuestionIndex);
 }
 
-function displayQuestion(index) {
-    var question = questionArray[index];
-    var questionEl = document.getElementById("question");
-    questionEl.textContent = question.question;
-    var answerBtnsEl = document.getElementById("answerBtns");
-    while (answerBtnsEl.firstChild){
-        answerBtnsEl.removeChild(answerBtnsEl.firstChild);
-    }
 
-    for (var key in question.choices) {
-        var choice = question.choices[key];
-        var btn = document.createElement("button");
-        btn.textContent = choice;
-        btn.classList.add("btn");
-
-        btn.addEventListener("click", function () {
-            selectedAnswers[currentQuestionIndex] = choice;
-            if (currentQuestionIndex === totalQuestions - 1) {
-                endQuiz ();
-            } else {
-                currentQuestionIndex++;
-                displayQuestion(currentQuestionIndex;)
-            }
-        });
-        answerBtnsEl.appendChild(btn);
-    }
-}
+console.log(startQuiz)
