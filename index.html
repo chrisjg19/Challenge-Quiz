@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="highscore">highscore</div>
-    <div class="timeLeft">Time</div>
+    <h4 class="timeLeft">Time Left:<span id="timer">00</span></h4>
   
     <div class="container">
         <div id="questionBox" class="hide">
@@ -21,13 +21,16 @@
                 <button class="btn">This is answer number 4</button>
             </div>
         </div>
-        <div class="start">Are you ready to start the quiz? 
+        <div class="start">
             <div id="startBtn" class="start-btn">
+                Are you ready to start the quiz? 
             <button>start</button>
         </div> 
         <div class="next">
             <div id="nextBtn" class="next-btn">
-                <button>next</button>
+                <p>Current Score: <span id="score"></span></p>
+                <input id="user" type="text" placeholder="Enter User name" />
+                <button>Save User score</button>
             </div>
         </div>
     </div>
